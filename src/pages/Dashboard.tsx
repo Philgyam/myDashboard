@@ -294,10 +294,7 @@ export default function Dashboard() {
           <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders}</p>
           <p className="text-gray-900">Processing</p>
         </div>
-        <div className="mx-2">
-          <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders + currentStoreData.currentOrders }</p>
-          <p className="text-gray-900">Total</p>
-        </div>
+      
       </div>
     
     </div>
