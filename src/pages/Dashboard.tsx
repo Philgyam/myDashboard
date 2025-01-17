@@ -221,7 +221,7 @@ export default function Dashboard() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 px-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   {/* Welcome Message */}
   <div className="bg-green-100 rounded-xl shadow-lg p-6 transition-all hover:shadow-xl col-span-full">
   <h2 className="text-lg font-semibold text-gray-900 flex items-center">
