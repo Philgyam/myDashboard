@@ -267,90 +267,93 @@ export default function Dashboard() {
   })}
 </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
           {/* Stats Cards Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-3 h-full overflow-hidden max-w-full">
-  {loading ? (
-    <div className="flex justify-center items-center h-full">
-      <Loader className="h-10 w-10 text-indigo-600 animate-spin" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2  h-full">
+          {loading ? (
+  <div className="flex justify-center items-center h-full">
+    <Loader className="h-10 w-10 text-indigo-600 animate-spin" />
+  </div>
+) : (
+  <>
+    <div className="bg-indigo-50 rounded-xl border-4  flex flex-col p-4 h-full items-center ">
+      <div className="flex items-center mb-2">
+        <div className="bg-indigo-100 p-2 rounded-full">
+          <DollarSign className="h-6 w-6 text-indigo-600" />
+        </div>
+        <span className="text-sm font-medium text-indigo-600 ml-2">Current Orders</span>
+      </div>
+      <div className="flex justify-center text-center">
+        
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.currentOrders}</p>
+          <p className="text-gray-900">Processed</p>
+        </div>
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders}</p>
+          <p className="text-gray-900">Processing</p>
+        </div>
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders + currentStoreData.currentOrders }</p>
+          <p className="text-gray-900">Total</p>
+        </div>
+      </div>
+    
     </div>
-  ) : (
-    <>
-      <div className="bg-indigo-50 rounded-xl border-4 flex flex-col p-4 h-full items-center">
-        <div className="flex items-center mb-2">
-          <div className="bg-indigo-100 p-2 rounded-full">
-            <DollarSign className="h-6 w-6 text-indigo-600" />
-          </div>
-          <span className="text-sm font-medium text-indigo-600 ml-2">Current Orders</span>
-        </div>
-        <div className="flex justify-center text-center">
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.currentOrders}</p>
-            <p className="text-gray-900">Processed</p>
-          </div>
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders}</p>
-            <p className="text-gray-900">Processing</p>
-          </div>
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.processedOrders + currentStoreData.currentOrders}</p>
-            <p className="text-gray-900">Total</p>
-          </div>
-        </div>
-      </div>
 
-      <div className="bg-green-50 rounded-xl flex border-4 flex-col p-4 h-full items-center">
-        <div className="flex items-center mb-2">
-          <div className="bg-green-100 p-2 rounded-full">
-            <Package className="h-6 w-6 text-green-600" />
-          </div>
-          <span className="text-sm font-medium text-green-600 ml-2">Store Items</span>
+    <div className="bg-green-50 rounded-xl flex border-4  flex-col p-4 h-full  items-center ">
+      <div className="flex items-center mb-2">
+        <div className="bg-green-100 p-2 rounded-full">
+          <Package className="h-6 w-6 text-green-600" />
         </div>
-        <div className="flex justify-center text-center">
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.totalItems}</p>
-            <p className="text-gray-900">Total</p>
-          </div>
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.totalSold}</p>
-            <p className="text-gray-900">Sold</p>
-          </div>
+        <span className="text-sm font-medium text-green-600 ml-2">Store Items</span>
+      </div>
+      <div className="flex justify-center text-center">
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.totalItems}</p>
+          <p className="text-gray-900">Total</p>
+        </div>
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.totalSold}</p>
+          <p className="text-gray-900">Sold</p>
         </div>
       </div>
+    </div>
 
-      <div className="bg-yellow-50 rounded-xl border-4 flex flex-col p-4 h-full items-center">
-        <div className="flex items-center mb-2">
-          <div className="bg-yellow-100 p-2 rounded-full">
-            <Truck className="h-6 w-6 text-yellow-600" />
-          </div>
-          <span className="text-sm font-medium text-yellow-600 ml-2">Package Delivery</span>
+    <div className="bg-yellow-50 rounded-xl border-4  flex flex-col p-4 h-full items-center">
+      <div className="flex items-center mb-2">
+        <div className="bg-yellow-100 p-2 rounded-full">
+          <Truck className="h-6 w-6 text-yellow-600" />
         </div>
-        <div className="flex justify-center text-center">
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.OrdersLocal}</p>
-            <p className="text-gray-900">Local</p>
-          </div>
-          <div className="mx-2">
-            <p className="text-xl font-bold text-gray-900">{currentStoreData.OrdersInt}</p>
-            <p className="text-gray-900">International</p>
-          </div>
+        <span className="text-sm font-medium text-yellow-600 ml-2">Package Delivery</span>
+      </div>
+      <div className="flex justify-center text-center">
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.OrdersLocal}</p>
+          <p className="text-gray-900">Local</p>
+        </div>
+        <div className="mx-2">
+          <p className="text-xl font-bold text-gray-900">{currentStoreData.OrdersInt}</p>
+          <p className="text-gray-900">International</p>
         </div>
       </div>
+    </div>
 
-      <div className="bg-blue-50 rounded-xl border-4 flex flex-col p-4 h-full items-center">
-        <div className="flex items-center mb-2">
-          <div className="bg-blue-100 p-2 rounded-full">
-            <ArrowDownRight className="h-6 w-6 text-blue-600" />
-          </div>
-          <span className="text-sm font-medium text-blue-600 ml-2">Returned Products</span>
+    <div className="bg-blue-50 rounded-xl border-4 flex flex-col p-4 h-full items-center ">
+      <div className="flex items-center mb-2">
+        <div className="bg-blue-100 p-2 rounded-full">
+          <ArrowDownRight className="h-6 w-6 text-blue-600" />
         </div>
-        <p className="text-xl font-bold text-gray-900 text-center">{currentStoreData.completedOrders}</p>
-        <p className="text-gray-900">items returned</p>
+        <span className="text-sm font-medium text-blue-600 ml-2">Returned Products</span>
       </div>
-    </>
-  )}
+      <p className="text-xl font-bold text-gray-900 text-center">{currentStoreData.completedOrders}</p>
+      <p className="text-gray-900">items returned</p>
+    </div>
+  </>
+)}
+
 </div>
-   
         
           {/* Revenue / Orders Overview Chart */}
           <div className="bg-white border-4 border-blue-100 rounded-xl shadow-sm p-6 h-full">
